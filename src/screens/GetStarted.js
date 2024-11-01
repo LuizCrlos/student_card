@@ -1,12 +1,17 @@
 // screens/GetStarted.js
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 const GetStarted = ({ navigation }) => {
   return (
     <View style={styles.container}>
       {/* Animated Card */}
-      <View style={styles.card}>{/* Implement animation here */}</View>
+      <Text style={styles.title}>Seu documento estudantil todo digital.</Text>
+      <View style={styles.card}>{
+       <Image
+       source={require('../assets/download.png')} // Certifique-se de que o caminho está correto
+       style={styles.image}
+     />/* Implement animation here */}</View>
       <Text style={styles.title}>Seu documento estudantil todo digital.</Text>
       <Text style={styles.paragraph}>
         Digitalize seu Documento Nacional do Estudante válido através do QR Code
@@ -29,10 +34,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 20,
-    backgroundColor: "#fff",
+    backgroundColor: "#71CE7E",
   },
   card: {
-    width: "100%",
+    width: "90%",
     height: 200,
     backgroundColor: "#f8f8f8",
     borderRadius: 10,
@@ -44,18 +49,25 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#333",
+    color: "#d86615",
     marginBottom: 10,
     textAlign: "center",
   },
   paragraph: {
     fontSize: 16,
-    color: "#666",
+    color: "#333",
     textAlign: "center",
     marginBottom: 20,
   },
+  image: {
+    width: 300, // Largura da imagem
+    height: 130, // Altura da imagem
+    marginBottom: 10, // Margem inferior
+    sborderRadius: 75, // Cantos arredondados
+    resizeMode: 'cover', // Ajuste da imagem
+  },
   button: {
-    backgroundColor: "#007BFF",
+    backgroundColor: "#DB8206",
     paddingVertical: 15,
     paddingHorizontal: 30,
     borderRadius: 5,

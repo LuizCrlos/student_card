@@ -1,4 +1,3 @@
-// screens/Home.js
 import React, { useState } from "react";
 import {
   View,
@@ -6,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   FlatList,
+  Image,
 } from "react-native";
 
 const Home = ({ navigation }) => {
@@ -14,9 +14,12 @@ const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Seus Documentos</Text>
+      <Image
+        source={require('../assets/download.png')} // Certifique-se de que o caminho está correto
+        style={styles.image}
+      />
       {documents.length === 0 ? (
         <View style={styles.placeholder}>
-          {/* Placeholder Image */}
           <Text>Você ainda não adicionou nenhum documento.</Text>
         </View>
       ) : (
@@ -46,13 +49,21 @@ const Home = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#71CE7E",
     padding: 20,
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
+    fontFamily: 'Courier New'
+  },
+  image: {
+    width: 250, // Largura da imagem
+    height: 100, // Altura da imagem
+    marginBottom: 20, // Margem inferior
+    borderRadius: 75, // Cantos arredondados
+    resizeMode: 'cover', // Ajuste da imagem
   },
   placeholder: {
     flex: 1,
@@ -63,7 +74,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 30,
     right: 30,
-    backgroundColor: "#007BFF",
+    backgroundColor: "#d67613",
     width: 60,
     height: 60,
     borderRadius: 30,
@@ -76,4 +87,5 @@ const styles = StyleSheet.create({
     lineHeight: 30,
   },
 });
+
 export default Home;
