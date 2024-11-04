@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   FlatList,
   Image,
+  TextInput,
 } from "react-native";
 
 const Home = ({ navigation }) => {
@@ -18,6 +19,16 @@ const Home = ({ navigation }) => {
         source={require('../assets/download.png')} // Certifique-se de que o caminho está correto
         style={styles.image}
       />
+      <View style={styles.login}>
+        <TextInput
+          style={styles.input}
+          placeholder="Insira sua matricula" // Adiciona o placeholder aqui
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Insira sua senha" // Adiciona o placeholder aqui
+        />
+      </View>
       {documents.length === 0 ? (
         <View style={styles.placeholder}>
           <Text>Você ainda não adicionou nenhum documento.</Text>
@@ -56,7 +67,8 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
-    fontFamily: 'Courier New'
+    fontFamily: 'Courier New',
+    paddingTop: 30,
   },
   image: {
     width: 250, // Largura da imagem
@@ -64,6 +76,19 @@ const styles = StyleSheet.create({
     marginBottom: 20, // Margem inferior
     borderRadius: 75, // Cantos arredondados
     resizeMode: 'cover', // Ajuste da imagem
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    paddingLeft: 8,
+    marginBottom: 20,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+  },
+  login: {
+    marginBottom: 40,
+    paddingTop: 50,
   },
   placeholder: {
     flex: 1,
@@ -74,7 +99,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 30,
     right: 30,
-    backgroundColor: "#d67613",
+    backgroundColor: "#007BFF",
     width: 60,
     height: 60,
     borderRadius: 30,

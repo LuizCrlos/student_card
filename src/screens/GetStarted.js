@@ -1,19 +1,20 @@
 // screens/GetStarted.js
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image, Dimensions } from "react-native";
+
+const { width } = Dimensions.get('window');
 
 const GetStarted = ({ navigation }) => {
   return (
     <View style={styles.container}>
       {/* Animated Card */}
-      <Text style={styles.title}>Seu documento estudantil todo digital.</Text>
+      <Text style={styles.title}>Student Card</Text>
       <View style={styles.card}>{
        <Image
        source={require('../assets/download.png')} // Certifique-se de que o caminho está correto
        style={styles.image}
      />/* Implement animation here */}</View>
-      <Text style={styles.title}>Seu documento estudantil todo digital.</Text>
-      <Text style={styles.paragraph}>
+            <Text style={styles.paragraph}>
         Digitalize seu Documento Nacional do Estudante válido através do QR Code
         e tenha ele sempre disponível no seu dispositivo!
       </Text>
@@ -47,11 +48,16 @@ const styles = StyleSheet.create({
     // Add additional styles for the animated card here
   },
   title: {
-    fontSize: 24,
+    fontSize: 58, // Aumenta o tamanho da fonte
     fontWeight: "bold",
     color: "#d86615",
-    marginBottom: 10,
+    marginBottom: 20, // Aumenta a margem inferior
     textAlign: "center",
+    fontFamily: 'Irish Grover',
+    textShadowColor: 'rgba(0, 0, 0, 0.75)', // Adiciona sombra ao texto
+    textShadowOffset: { width: -1, height: 1 }, // Define o deslocamento da sombra
+    textShadowRadius: 10, // Define o raio da sombra
+    paddingTop: 20, // Adiciona preenchimento superior
   },
   paragraph: {
     fontSize: 16,
