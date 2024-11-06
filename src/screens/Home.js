@@ -9,6 +9,7 @@ import {
   TextInput,
 } from "react-native";
 
+
 const Home = ({ navigation }) => {
   const [documents, setDocuments] = useState([]);
 
@@ -28,6 +29,11 @@ const Home = ({ navigation }) => {
           style={styles.input}
           placeholder="Insira sua senha" // Adiciona o placeholder aqui
         />
+        <TouchableOpacity
+          style={styles.addButtonEntrar}  // Adiciona a pagina desejada aqui embaixo
+          onPress={() => navigation.navigate("  ")}>  
+          <Text style={styles.addButtonEntrarText}>Entrar</Text> 
+        </TouchableOpacity>
       </View>
       {documents.length === 0 ? (
         <View style={styles.placeholder}>
@@ -110,6 +116,19 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 30,
     lineHeight: 30,
+  },
+  addButtonEntrar: {
+    backgroundColor: "#DB8206",
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 5,
+    marginBottom: 20,
+  },
+  addButtonEntrarText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
+    textAlign: "center",
   },
 });
 
