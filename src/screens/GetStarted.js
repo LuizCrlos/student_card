@@ -1,20 +1,38 @@
 // screens/GetStarted.js
-import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image, Dimensions } from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, TouchableOpacity, Image, Dimensions, TextInput } from "react-native";
 
 const { width } = Dimensions.get('window');
 
 const GetStarted = ({ navigation }) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <View style={styles.container}>
       {/* Animated Card */}
       <Text style={styles.title}>Student Card</Text>
-      <View style={styles.card}>{
-       <Image
-       source={require('../assets/download.png')} // Certifique-se de que o caminho está correto
-       style={styles.image}
-     />/* Implement animation here */}</View>
-            <Text style={styles.paragraph}>
+      <View style={styles.card}>
+        <Image
+          source={require('../assets/download.png')} // Certifique-se de que o caminho está correto
+          style={styles.image}
+        />
+        {/* Implement animation here */}
+      </View>
+      <TextInput
+        style={styles.input}
+        placeholder="Insira sua matricula"
+        value={username}
+        onChangeText={setUsername}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Insira sua senha"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry
+      />
+      <Text style={styles.paragraph}>
         Digitalize seu Documento Nacional do Estudante válido através do QR Code
         e tenha ele sempre disponível no seu dispositivo!
       </Text>
@@ -69,8 +87,16 @@ const styles = StyleSheet.create({
     width: 300, // Largura da imagem
     height: 130, // Altura da imagem
     marginBottom: 10, // Margem inferior
-    sborderRadius: 75, // Cantos arredondados
+    borderRadius: 75, // Cantos arredondados
     resizeMode: 'cover', // Ajuste da imagem
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    paddingLeft: 8,
+    marginBottom: 20,
+    width: '80%',
   },
   button: {
     backgroundColor: "#DB8206",
